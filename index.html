@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="/files/style.css">
+</head>
+<body>
+    <main class="auth-page" id="authPage">
+        <section class="auth-card" id="login">
+            <div class="brand-wrap">
+                <div class="brand-icon" aria-hidden="true">
+                    <svg viewBox="0 0 48 48" focusable="false">
+                        <rect x="8" y="11" width="32" height="29" rx="6" fill="#fff"/>
+                        <path d="M8 17a6 6 0 0 1 6-6h20a6 6 0 0 1 6 6v4H8z" fill="#be123c"/>
+                        <path d="M17 8v7M31 8v7" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M16 27h4m4 0h4m4 0h2M16 33h4m4 0h4" stroke="#e11d48" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">Calendario</span>
+                    <small>Tu agenda inteligente</small>
+                </div>
+            </div>
+
+            <div class="welcome-block">
+                <p class="eyebrow">Bienvenido</p>
+                <h1>Iniciar sesión</h1>
+            </div>
+
+            <form class="login-form" id="loginForm">
+                <label class="field">
+                    <span>Correo electrónico</span>
+                    <input id="loginEmail" type="email" placeholder="tucorreo@ejemplo.com" required>
+                </label>
+
+                <label class="field">
+                    <span>Contraseña</span>
+                    <input id="loginPassword" type="password" placeholder="••••••••" required>
+                </label>
+
+                <div class="form-row">
+                    <label class="remember-me">
+                        <input type="checkbox">
+                        <span>Recordarme</span>
+                    </label>
+                    <a href="#recover-password" class="text-link" id="forgotPasswordLink" aria-controls="recover-password">¿Olvidaste tu contraseña?</a>
+                </div>
+
+                <button type="submit" class="primary-btn">Entrar</button>
+            </form>
+
+            <div class="divider"><span>o</span></div>
+
+            <button type="button" class="secondary-btn" id="googleLoginBtn">Continuar con Google</button>
+
+            <p class="signup-text">
+                ¿No tienes cuenta?
+                <a href="#signup" class="text-link" id="createAccountLink" aria-controls="signup">Crear cuenta</a>
+            </p>
+        </section>
+
+        <section class="auth-card signup-card hidden" id="signup" aria-hidden="true">
+            <div class="welcome-block">
+                <p class="eyebrow">Únete a Calendario</p>
+                <h1>Crear cuenta</h1>
+            </div>
+
+            <p class="signup-note">Completa tus datos para entrar y organizar tu agenda.</p>
+
+            <form class="login-form" id="signupForm">
+                <label class="field">
+                    <span>Nombre</span>
+                    <input id="signupName" type="text" placeholder="Tu nombre" autocomplete="name" minlength="2" required>
+                </label>
+
+                <label class="field">
+                    <span>Correo electrónico</span>
+                    <input id="signupEmail" type="email" placeholder="tucorreo@ejemplo.com" autocomplete="email" required>
+                </label>
+
+                <label class="field">
+                    <span>Contraseña</span>
+                    <input id="signupPassword" type="password" placeholder="Mínimo 8 caracteres" autocomplete="new-password" minlength="8" required>
+                </label>
+
+                <label class="field">
+                    <span>Confirmar contraseña</span>
+                    <input id="signupPasswordConfirm" type="password" placeholder="Vuelve a escribir tu contraseña" autocomplete="new-password" minlength="8" required>
+                </label>
+
+                <p id="signupStatus" class="signup-status" role="status" aria-live="polite"></p>
+                <button type="submit" class="primary-btn">Crear cuenta</button>
+            </form>
+
+            <p class="signup-text">
+                ¿Ya tienes cuenta?
+                <a href="#login" class="text-link" id="signupBackLink" aria-controls="login">Iniciar sesión</a>
+            </p>
+            <p class="signup-demo-note">Modo demostración: la cuenta no se guarda y no se crea un usuario real.</p>
+        </section>
+
+        <section class="recover-card hidden" id="recover-password" aria-hidden="true">
+            <div class="recover-header">
+                <p class="eyebrow">Recuperación</p>
+                <h2>Restablecer contraseña</h2>
+            </div>
+
+            <p class="recover-copy">
+                Ingresa tu correo y te enviaremos un enlace para cambiar tu contraseña.
+            </p>
+
+            <form class="recover-form" id="recoverForm">
+                <label class="field">
+                    <span>Correo electrónico</span>
+                    <input type="email" placeholder="tucorreo@ejemplo.com" required>
+                </label>
+
+                <button type="submit" class="primary-btn">Enviar enlace</button>
+            </form>
+
+            <p id="recoverStatus" class="recover-status" aria-live="polite"></p>
+
+            <a href="#login" class="back-link" id="backToLoginLink" aria-controls="login">Volver al inicio</a>
+        </section>
+    </main>
+
+    <div class="app-shell hidden" id="appShell">
+        <aside class="sidebar">
+            <div class="brand-wrap sidebar-brand">
+                <div class="brand-icon" aria-hidden="true">
+                    <svg viewBox="0 0 48 48" focusable="false">
+                        <rect x="8" y="11" width="32" height="29" rx="6" fill="#fff"/>
+                        <path d="M8 17a6 6 0 0 1 6-6h20a6 6 0 0 1 6 6v4H8z" fill="#be123c"/>
+                        <path d="M17 8v7M31 8v7" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M16 27h4m4 0h4m4 0h2M16 33h4m4 0h4" stroke="#e11d48" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">Calendario</span>
+                    <small>Mi agenda</small>
+                </div>
+            </div>
+
+            <nav class="side-menu">
+                <button class="nav-btn active" type="button" data-view="agenda"><i class="fa-solid fa-calendar-days"></i> Agenda</button>
+                <button class="nav-btn" type="button" data-view="today"><i class="fa-solid fa-clock"></i> Hoy</button>
+                <button class="nav-btn" type="button" data-view="settings"><i class="fa-solid fa-gear"></i> Ajustes</button>
+            </nav>
+
+            <div class="mini-card">
+                <p class="mini-title">Resumen</p>
+                <h3 id="eventCount">0 eventos</h3>
+                <p id="todayText">Sin tareas para hoy</p>
+            </div>
+        </aside>
+
+        <main class="dashboard">
+            <header class="topbar">
+                <div>
+                    <p class="eyebrow light">Sesión activa</p>
+                    <h2 id="userGreeting">Bienvenido</h2>
+                </div>
+
+                <div class="topbar-actions">
+                    <button class="secondary-btn small-btn" id="todayBtn">Hoy</button>
+                    <button class="primary-btn small-btn" id="logoutBtn">Cerrar sesión</button>
+                </div>
+            </header>
+
+            <div id="calendarView">
+                <section class="calendar-panel">
+                    <div class="calendar-toolbar">
+                        <button class="icon-btn" id="prevMonth" aria-label="Mes anterior"><i class="fa-solid fa-chevron-left"></i></button>
+                        <h3 id="monthLabel">Mes</h3>
+                        <button class="icon-btn" id="nextMonth" aria-label="Mes siguiente"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+
+                    <div class="calendar-weekdays">
+                        <span>Dom</span>
+                        <span>Lun</span>
+                        <span>Mar</span>
+                        <span>Mié</span>
+                        <span>Jue</span>
+                        <span>Vie</span>
+                        <span>Sáb</span>
+                    </div>
+
+                    <div class="calendar-grid" id="calendarDays"></div>
+                </section>
+
+                <section class="event-section">
+                    <div class="event-form-card">
+                        <h3>Agregar evento</h3>
+                        <p class="event-form-help">Selecciona un día del calendario para asignar la nota. Tus eventos se guardan en este navegador.</p>
+                        <form id="eventForm">
+                            <label class="field dark-field">
+                                <span>Título</span>
+                                <input id="eventTitle" type="text" placeholder="Reunión, tarea, cita..." required>
+                            </label>
+
+                            <label class="field dark-field">
+                                <span>Fecha</span>
+                                <input id="eventDate" type="date" required>
+                            </label>
+
+                            <label class="field dark-field">
+                                <span>Descripción</span>
+                                <textarea id="eventDescription" rows="3" placeholder="Detalles del evento"></textarea>
+                            </label>
+
+                            <button type="submit" class="primary-btn">Guardar evento</button>
+                            <p id="eventStatus" class="event-status" role="status" aria-live="polite"></p>
+                        </form>
+                    </div>
+
+                    <div class="event-list-card">
+                        <h3 id="selectedDateLabel">Eventos</h3>
+                        <ul id="selectedEvents" class="event-list"></ul>
+                    </div>
+                </section>
+
+                <section class="music-player" aria-label="Reproductor de música">
+                    <audio id="audioPlayer" preload="none"></audio>
+                    <div class="player-track">
+                        <span class="player-icon" aria-hidden="true"><i class="fa-solid fa-music"></i></span>
+                        <div class="player-track-info">
+                            <span class="player-label">Reproduciendo</span>
+                            <strong id="currentTrackTitle">Elige una canción</strong>
+                        </div>
+                    </div>
+
+                    <div class="player-controls">
+                        <div class="player-buttons">
+                            <button class="icon-btn player-control" id="btnPrev" type="button" aria-label="Canción anterior">
+                                <i class="fa-solid fa-backward-step"></i>
+                            </button>
+                            <button class="primary-btn player-play" id="btnPlayPause" type="button" aria-label="Reproducir o pausar">
+                                <i class="fa-solid fa-play" id="iconPlay"></i>
+                            </button>
+                            <button class="icon-btn player-control" id="btnNext" type="button" aria-label="Siguiente canción">
+                                <i class="fa-solid fa-forward-step"></i>
+                            </button>
+                        </div>
+                        <div class="player-progress-row">
+                            <span id="currentTimeText">0:00</span>
+                            <button id="progressContainer" class="progress-container" type="button" aria-label="Barra de progreso">
+                                <span id="progressBarFill" class="progress-fill"></span>
+                            </button>
+                            <span id="durationTimeText">0:00</span>
+                        </div>
+                    </div>
+
+                    <div class="player-options">
+                        <label class="volume-control" for="volumeControl" aria-label="Volumen">
+                            <i class="fa-solid fa-volume-high" aria-hidden="true"></i>
+                            <input id="volumeControl" type="range" min="0" max="1" step="0.01" value="0.8">
+                        </label>
+                        <div class="playlist-wrap">
+                            <button class="secondary-btn playlist-toggle" id="btnTogglePlaylist" type="button" aria-expanded="false" aria-controls="playlistDropdown">
+                                <i class="fa-solid fa-list"></i> Lista
+                            </button>
+                            <div class="playlist-dropdown" id="playlistDropdown"></div>
+                        </div>
+                        <input id="localAudioInput" class="visually-hidden" type="file" accept="audio/*">
+                        <button class="secondary-btn upload-audio-btn" id="btnUploadLocal" type="button">
+                            <i class="fa-solid fa-upload"></i> Añadir audio
+                        </button>
+                    </div>
+                </section>
+            </div>
+
+            <section class="settings-panel hidden" id="settingsView" aria-labelledby="settingsTitle">
+                <div class="settings-header">
+                    <p class="eyebrow">Preferencias</p>
+                    <h2 id="settingsTitle">Ajustes</h2>
+                    <p>Personaliza el calendario a tu manera.</p>
+                </div>
+
+                <form id="settingsForm" class="settings-form">
+                    <label class="setting-row" for="themeSetting">
+                        <span class="setting-copy">
+                            <strong>Modo oscuro</strong>
+                            <small>Usar una apariencia oscura en el calendario.</small>
+                        </span>
+                        <input id="themeSetting" class="setting-toggle" type="checkbox">
+                    </label>
+                    <label class="field setting-field" for="dateFormatSetting">
+                        <span>Formato de fecha</span>
+                        <select id="dateFormatSetting">
+                            <option value="long">Fecha larga (día, mes y año)</option>
+                            <option value="dmy">DD/MM/AAAA</option>
+                            <option value="mdy">MM/DD/AAAA</option>
+                            <option value="ymd">AAAA-MM-DD</option>
+                        </select>
+                    </label>
+
+                    <label class="field setting-field" for="weekStartSetting">
+                        <span>La semana comienza el</span>
+                        <select id="weekStartSetting">
+                            <option value="0">Domingo</option>
+                            <option value="1">Lunes</option>
+                        </select>
+                    </label>
+
+                    <p id="settingsStatus" class="settings-status" role="status" aria-live="polite"></p>
+                    <div class="settings-actions">
+                        <button type="submit" class="primary-btn">Guardar ajustes</button>
+                        <button type="button" class="secondary-btn" id="resetSettingsBtn">Restablecer predeterminados</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <script src="/files/script.js"></script>
+    <script src="/files/reproductor.js"></script>
+</body>
+</html>
